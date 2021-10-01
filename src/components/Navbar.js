@@ -3,13 +3,13 @@ import { Avatar, Typography, Button, Menu} from "antd";
 import { Link } from 'react-router-dom';
 import { HomeOutlined, MoneyCollectFilled, BulbOutlined, FundOutlined, MoneyCollectOutlined } from "@ant-design/icons";
 
-const icon = require('../images/crypto.png')
+const icon = require("../images/Crypto.png"); 
 
 const Navbar = () => {
     return (
         <div className = "nav-container">
             <div className = "logo-container">
-               <Avatar src = {icon} size = "large" />
+               <Avatar src = {icon} size = "large"/>
                <Typography.Title level = {2} className = "logo">
                    <Link to = "/">CryptoChecker</Link>
                </Typography.Title>
