@@ -13,9 +13,9 @@ const { Option } = Select
 
 const Cryptodetails = () => {
     const { coinId } = useParams();
-    const [timeperiod, setTimeperiod] = useState('7d');
+    const [timePeriod, setTimeperiod] = useState('7d');
     const { data, isFetching } = useGetCryptoDetailsQuery(coinId);
-    const { data:coinHistory, isFetching:chFetching }= useGetCryptoHistoryQuery({coinId})
+    const { data:coinHistory, isFetching:chFetching }= useGetCryptoHistoryQuery({coinId, timePeriod})
     const cryptoDetails = data?.data?.coin;
     console.log(cryptoDetails)
     if (isFetching) return "Loading..."
@@ -56,7 +56,7 @@ const Cryptodetails = () => {
                  onChange = {(value) => setTimeperiod(value)} > 
                     {time.map((date) => <Option key = {date}> {date} </Option>)}
                  </Select>
-                 <Linechart coinHistory = {coinHistory} currentPrice = {millify(cryptoDetails.Price)} coinName = {cryptoDetails.name}/>
+                 <Linechart coinHistory = {coinHistory} currentPrice = {millify(cryptoDetails.price)}/>
                  <Col className = "stats-container">
                      <Col className = "coin-value-statistics">
                         <Col className = "coin-value-statistics-heading">
